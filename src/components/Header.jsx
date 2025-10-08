@@ -12,8 +12,8 @@ export default function Header() {
     { name: 'Regulamentação', href: '#regulamentacao' },
     { name: 'Mercado', href: '#mercado' },
     { name: 'Serviços', href: '#servicos' },
-    { name: 'Notícias', href: '#noticias' },
-    { name: 'Due Diligence', href: '#due-diligence' },
+    { name: 'Notícias', href: 'https://noticias.administradoramutual.com.br', external: true },
+    { name: 'Due Diligence', href: 'https://formulario.administradoramutual.com.br', external: true },
     { name: 'Contato', href: '#contato' },
   ];
 
@@ -67,6 +67,7 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
+                {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
               >
                 {item.name}
@@ -149,6 +150,7 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
+                {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
