@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, ChevronDown, Building2, Palette, Newspaper, FileText, BarChart3, DollarSign } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2, Palette, Newspaper, FileText, BarChart3, DollarSign, ClipboardList } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logo from '../assets/logo.svg';
 
@@ -53,6 +53,12 @@ export default function Header() {
       url: 'https://gestaosegura.administradoramutual.com.br',
       description: 'Análise completa dos POPs da Gestão Segura',
       icon: BarChart3,
+    },
+    {
+      name: 'POPs Comerciais',
+      url: 'https://comercial.administradoramutual.com.br',
+      description: 'Procedimentos operacionais do setor comercial',
+      icon: ClipboardList,
     },
   ];
 
