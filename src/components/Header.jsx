@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, ChevronDown, Building2 } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2, Palette, Newspaper, FileText, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logo from '../assets/logo.svg';
 
@@ -23,6 +23,30 @@ export default function Header() {
       url: 'https://sinistro.administradoramutual.com.br',
       description: 'Procedimentos operacionais padrão para gestão de sinistros',
       icon: Building2,
+    },
+    {
+      name: 'Manual da Marca',
+      url: 'https://marca.administradoramutual.com.br',
+      description: 'Identidade visual, logo, cores e aplicações da marca',
+      icon: Palette,
+    },
+    {
+      name: 'Central de Notícias',
+      url: 'https://noticias.administradoramutual.com.br',
+      description: 'Notícias do mercado de seguros e proteção patrimonial',
+      icon: Newspaper,
+    },
+    {
+      name: 'Due Diligence',
+      url: 'https://formulario.administradoramutual.com.br',
+      description: 'Formulário de análise de viabilidade de carteira',
+      icon: FileText,
+    },
+    {
+      name: 'Análise Gestão Segura',
+      url: 'https://gestaosegura.administradoramutual.com.br',
+      description: 'Análise completa dos POPs da Gestão Segura',
+      icon: BarChart3,
     },
   ];
 
