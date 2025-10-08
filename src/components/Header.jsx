@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, ChevronDown, Building2, Palette, Newspaper, FileText, BarChart3 } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2, Palette, Newspaper, FileText, BarChart3, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logo from '../assets/logo.svg';
 
@@ -23,6 +23,12 @@ export default function Header() {
       url: 'https://sinistro.administradoramutual.com.br',
       description: 'Procedimentos operacionais padrão para gestão de sinistros',
       icon: Building2,
+    },
+    {
+      name: 'POP Financeiro',
+      url: 'https://financeiro.administradoramutual.com.br',
+      description: 'Procedimentos operacionais do departamento financeiro',
+      icon: DollarSign,
     },
     {
       name: 'Manual da Marca',
