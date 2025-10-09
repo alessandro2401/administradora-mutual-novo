@@ -2,6 +2,13 @@ import { Button } from '@/components/ui/button';
 import { Shield } from 'lucide-react';
 
 export default function HeroSection() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section id="inicio" className="pt-24 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,10 +33,19 @@ export default function HeroSection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button 
+              size="lg" 
+              className="bg-blue-600 hover:bg-blue-700 text-white"
+              onClick={() => scrollToSection('contato')}
+            >
               Fale com um Especialista
             </Button>
-            <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-blue-600 text-blue-600 hover:bg-blue-50"
+              onClick={() => scrollToSection('regulamentacao')}
+            >
               Entenda a Regulamentação
             </Button>
           </div>
