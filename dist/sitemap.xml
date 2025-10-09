@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Página Principal -->
+  <url>
+    <loc>https://www.administradoramutual.com.br/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Seção Regulamentação -->
+  <url>
+    <loc>https://www.administradoramutual.com.br/#regulamentacao</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Seção Mercado -->
+  <url>
+    <loc>https://www.administradoramutual.com.br/#mercado</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Seção Serviços -->
+  <url>
+    <loc>https://www.administradoramutual.com.br/#servicos</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Seção Contato -->
+  <url>
+    <loc>https://www.administradoramutual.com.br/#contato</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Subdomínio: Central de Notícias -->
+  <url>
+    <loc>https://noticias.administradoramutual.com.br/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Subdomínio: Formulário Due Diligence -->
+  <url>
+    <loc>https://formulario.administradoramutual.com.br/</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
+
