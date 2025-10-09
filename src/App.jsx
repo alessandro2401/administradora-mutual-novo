@@ -1,5 +1,8 @@
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
+import ContactForm from './components/ContactForm';
+import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, TrendingUp, Shield, Users, BarChart3, FileText, Mail, MapPin, Clock } from 'lucide-react';
 import './App.css';
@@ -246,6 +249,12 @@ function App() {
         </div>
       </section>
 
+      {/* Depoimentos */}
+      <Testimonials />
+
+      {/* FAQ */}
+      <FAQ />
+
       {/* Contato */}
       <section id="contato" className="py-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -290,26 +299,7 @@ function App() {
 
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">Entre em Contato</h3>
-              <form className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Nome Completo"
-                  className="w-full px-4 py-2 rounded-md bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
-                />
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  className="w-full px-4 py-2 rounded-md bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
-                />
-                <textarea
-                  placeholder="Mensagem"
-                  rows="4"
-                  className="w-full px-4 py-2 rounded-md bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
-                ></textarea>
-                <Button className="w-full bg-white text-blue-600 hover:bg-gray-100">
-                  Enviar Mensagem
-                </Button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>

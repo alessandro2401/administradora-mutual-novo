@@ -1,0 +1,17 @@
+# robots.txt para Administradora Mutual
+# https://www.administradoramutual.com.br
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.administradoramutual.com.br/sitemap.xml
+
+# Crawl-delay (opcional, ajuda a não sobrecarregar o servidor)
+Crawl-delay: 1
+
+# Bloquear acesso a arquivos e diretórios sensíveis (se houver)
+# Disallow: /admin/
+# Disallow: /api/
+# Disallow: /*.json$
+
