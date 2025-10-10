@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import {
   signInWithPopup,
   signOut as firebaseSignOut,
   onAuthStateChanged
 } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, googleProvider, db } from '../firebase/config';
 
 const AuthContext = createContext({});
@@ -52,6 +52,36 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Registrar solicitação de acesso para usuários não autorizados
+  const registerAccessRequest = async (user) => {
+    try {
+      const requestRef = doc(db, 'access_requests', user.email);
+      const requestDoc = await getDoc(requestRef);
+
+      // Se já existe uma solicitação, não cria outra
+      if (requestDoc.exists()) {
+        console.log('Solicitação já existe para:', user.email);
+        return;
+      }
+
+      // Cria nova solicitação
+      await setDoc(requestRef, {
+        email: user.email,
+        displayName: user.displayName || 'Não informado',
+        photoURL: user.photoURL || '',
+        status: 'pending', // pending, approved, rejected
+        requestedAt: serverTimestamp(),
+        approvedAt: null,
+        approvedBy: null
+      });
+
+      console.log('Solicitação de acesso registrada para:', user.email);
+    } catch (error) {
+      console.error('Erro ao registrar solicitação:', error);
+      throw error;
+    }
+  };
+
   // Login com Google
   const signInWithGoogle = async () => {
     try {
@@ -61,6 +91,11 @@ export const AuthProvider = ({ children }) => {
       // Verifica se o usuário está autorizado
       const authorized = await checkAuthorization(userEmail);
       setIsAuthorized(authorized);
+
+      // Se não estiver autorizado, registra solicitação de acesso
+      if (!authorized) {
+        await registerAccessRequest(result.user);
+      }
 
       return { user: result.user, authorized };
     } catch (error) {

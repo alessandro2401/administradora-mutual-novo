@@ -6,6 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
 import WaitingApproval from './components/WaitingApproval';
 import SistemasInternos from './components/SistemasInternos';
+import AdminPanel from './components/AdminPanel';
 import App from './App.jsx';
 import './index.css';
 
@@ -29,6 +30,16 @@ createRoot(document.getElementById('root')).render(
             element={
               <ProtectedRoute>
                 <SistemasInternos />
+              </ProtectedRoute>
+            }
+          />
+          
+          {/* Rota protegida - Painel Administrativo */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminPanel />
               </ProtectedRoute>
             }
           />

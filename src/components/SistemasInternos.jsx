@@ -134,7 +134,10 @@ const SistemasInternos = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
+          <button
+            onClick={() => navigate('/admin')}
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200 text-left w-full"
+          >
             <div className="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 mb-4">
               <svg
                 className="h-6 w-6 text-purple-600"
@@ -151,12 +154,12 @@ const SistemasInternos = () => {
               </svg>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              Usuários
+              Gerenciar Usuários
             </h3>
             <p className="text-sm text-gray-600">
-              Gerencie usuários e permissões do sistema.
+              Aprove ou rejeite solicitações de acesso ao sistema.
             </p>
-          </div>
+          </button>
 
           <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
             <div className="flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 mb-4">
