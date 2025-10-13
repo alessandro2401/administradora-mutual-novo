@@ -3,7 +3,7 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBEyk14eOK9Pythqp1O5IkVKLtAqgsto4s",
+  apiKey: "AIzaSyBd72Ta0cqwD1Q0mBIWpUGPSvf_wD6JJ8o",
   authDomain: "administradoramutual.firebaseapp.com",
   projectId: "administradoramutual",
   storageBucket: "administradoramutual.firebasestorage.app",
