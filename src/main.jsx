@@ -1,8 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import ProtectedRouteSimples from './components/ProtectedRouteSimples';
-import LoginSimples from './components/LoginSimples';
 import SistemasInternos from './components/SistemasInternos';
 import AdminPanel from './components/AdminPanel';
 import App from './App.jsx';
@@ -15,32 +13,16 @@ createRoot(document.getElementById('root')).render(
         {/* Rota principal - Site público */}
         <Route path="/" element={<App />} />
         
-        {/* Rota de login */}
-        <Route path="/login" element={<LoginSimples />} />
+        {/* Sistemas Internos - Acesso Livre */}
+        <Route path="/sistemas-internos" element={<SistemasInternos />} />
         
-        {/* Rota protegida - Sistemas Internos */}
-        <Route
-          path="/sistemas-internos"
-          element={
-            <ProtectedRouteSimples>
-              <SistemasInternos />
-            </ProtectedRouteSimples>
-          }
-        />
+        {/* Painel Administrativo - Acesso Livre */}
+        <Route path="/admin" element={<AdminPanel />} />
         
-        {/* Rota protegida - Painel Administrativo */}
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRouteSimples>
-              <AdminPanel />
-            </ProtectedRouteSimples>
-          }
-        />
-        
-        {/* Redirecionar rotas antigas */}
-        <Route path="/acesso-negado" element={<Navigate to="/login" replace />} />
-        <Route path="/aguardando-aprovacao" element={<Navigate to="/login" replace />} />
+        {/* Redirecionar rotas antigas de login */}
+        <Route path="/login" element={<Navigate to="/sistemas-internos" replace />} />
+        <Route path="/acesso-negado" element={<Navigate to="/sistemas-internos" replace />} />
+        <Route path="/aguardando-aprovacao" element={<Navigate to="/sistemas-internos" replace />} />
         
         {/* Redirecionar rotas não encontradas para home */}
         <Route path="*" element={<Navigate to="/" replace />} />
