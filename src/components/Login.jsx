@@ -18,7 +18,7 @@ const Login = () => {
       if (authorized) {
         navigate('/sistemas-internos');
       } else {
-        navigate('/aguardando-aprovacao');
+        navigate('/acesso-negado');
       }
     } catch (error) {
       console.error('Erro no login:', error);

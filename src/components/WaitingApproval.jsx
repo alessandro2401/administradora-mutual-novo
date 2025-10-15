@@ -22,11 +22,11 @@ const WaitingApproval = () => {
           </div>
 
           <h1 className="text-3xl font-bold text-gray-900 mb-4">
-            Aguardando Aprovação
+            Acesso Não Autorizado
           </h1>
 
           <p className="text-lg text-gray-600 mb-6">
-            Sua solicitação de acesso foi registrada com sucesso!
+            Seu e-mail não está na lista de usuários autorizados.
           </p>
 
           {/* Informações do Usuário */}
@@ -60,19 +60,19 @@ const WaitingApproval = () => {
 
           {/* Instruções */}
           <div className="bg-gray-50 rounded-lg p-6 mb-6 text-left">
-            <h2 className="font-semibold text-gray-900 mb-3">O que acontece agora?</h2>
+            <h2 className="font-semibold text-gray-900 mb-3">Como obter acesso?</h2>
             <ul className="space-y-2 text-gray-600">
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 mt-1">✓</span>
-                <span>Sua solicitação foi enviada para os administradores</span>
+                <span>Entre em contato com o administrador do sistema</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 mt-1">✓</span>
-                <span>Você receberá uma notificação quando seu acesso for aprovado</span>
+                <span>Informe o e-mail que você tentou usar para fazer login</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 mt-1">✓</span>
-                <span>O processo de aprovação pode levar até 24 horas úteis</span>
+                <span>Após aprovação, você poderá acessar o sistema imediatamente</span>
               </li>
             </ul>
           </div>
