@@ -96,13 +96,18 @@ export const AuthProvider = ({ children }) => {
 
       // Se não estiver autorizado, registra solicitação de acesso
       if (!authorized) {
-        await registerAccessRequest(result.user);
+        try {
+          await registerAccessRequest(result.user);
+        } catch (regError) {
+          console.error('Erro ao registrar solicitação:', regError);
+          // Não bloqueia o login se falhar ao registrar
+        }
       }
 
-      return { user: result.user, authorized };
+      return { success: true, user: result.user, authorized };
     } catch (error) {
       console.error('Erro no login:', error);
-      throw error;
+      return { success: false, error: error.message, code: error.code };
     }
   };
 

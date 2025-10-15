@@ -13,16 +13,36 @@ const Login = () => {
       setError('');
       setLoading(true);
       
-      const { authorized } = await signInWithGoogle();
+      const result = await signInWithGoogle();
       
-      if (authorized) {
+      if (result.success === false) {
+        setError(result.error || 'Erro ao fazer login. Tente novamente.');
+        setLoading(false);
+        return;
+      }
+      
+      if (result.authorized) {
         navigate('/sistemas-internos');
       } else {
         navigate('/acesso-negado');
       }
     } catch (error) {
       console.error('Erro no login:', error);
-      setError('Falha ao fazer login. Por favor, tente novamente.');
+      
+      // Mensagens de erro mais específicas
+      let errorMessage = 'Falha ao fazer login. Por favor, tente novamente.';
+      
+      if (error.code === 'auth/popup-closed-by-user') {
+        errorMessage = 'Você fechou a janela de login. Tente novamente.';
+      } else if (error.code === 'auth/popup-blocked') {
+        errorMessage = 'O popup foi bloqueado pelo navegador. Permita popups para este site.';
+      } else if (error.code === 'auth/unauthorized-domain') {
+        errorMessage = 'Domínio não autorizado. Entre em contato com o administrador.';
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
