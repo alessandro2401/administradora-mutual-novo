@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, ChevronDown, Building2, Palette, Newspaper, FileText, BarChart3, DollarSign, ClipboardList } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2, Palette, Newspaper, FileText, BarChart3, DollarSign, ClipboardList, Calculator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logo from '../assets/logo.svg';
 
@@ -59,6 +59,12 @@ export default function Header() {
       url: 'https://comercial.administradoramutual.com.br',
       description: 'Procedimentos operacionais do setor comercial',
       icon: ClipboardList,
+    },
+    {
+      name: 'Calculadora de Antecipação de Pagamento',
+      url: 'https://total.administradoramutual.com.br',
+      description: 'Calculadora SMT para indenizações e antecipações',
+      icon: Calculator,
     },
   ];
 
