@@ -157,6 +157,26 @@ const SistemasInternos = () => {
             </p>
           </a>
 
+          {/* Card: Calculadora SMA */}
+          <a
+            href="https://sma.administradoramutual.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border-t-4 border-pink-600"
+          >
+            <div className="flex items-center mb-4">
+              <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h2 className="ml-3 text-xl font-semibold text-gray-900">Calculadora SMA</h2>
+            </div>
+            <p className="text-gray-600 text-sm">
+              Calculadora de Valores SMA - Socorro Mútuo Acordo do Movimento Mais Brasil.
+            </p>
+          </a>
+
           {/* Card: Painel Admin */}
           <a
             href="/admin"
