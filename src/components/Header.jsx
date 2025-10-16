@@ -66,6 +66,12 @@ export default function Header() {
       description: 'Calculadora SMT para indenizações e antecipações',
       icon: Calculator,
     },
+    {
+      name: 'Calculadora SMA',
+      url: 'https://sma.administradoramutual.com.br',
+      description: 'Análise de Planilha para Pagamento Antecipado com Desconto',
+      icon: Calculator,
+    },
   ];
 
   return (
