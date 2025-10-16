@@ -6,7 +6,8 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    acceptPrivacy: false
   });
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
   const [errors, setErrors] = useState({});
@@ -28,6 +29,10 @@ export default function ContactForm() {
       newErrors.message = 'Mensagem é obrigatória';
     } else if (formData.message.trim().length < 10) {
       newErrors.message = 'Mensagem deve ter pelo menos 10 caracteres';
+    }
+    
+    if (!formData.acceptPrivacy) {
+      newErrors.acceptPrivacy = 'Você deve concordar com a Política de Privacidade';
     }
     
     setErrors(newErrors);
@@ -158,6 +163,36 @@ export default function ContactForm() {
         )}
       </div>
 
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          name="acceptPrivacy"
+          id="acceptPrivacy"
+          checked={formData.acceptPrivacy}
+          onChange={(e) => {
+            setFormData(prev => ({ ...prev, acceptPrivacy: e.target.checked }));
+            if (errors.acceptPrivacy) {
+              setErrors(prev => ({ ...prev, acceptPrivacy: '' }));
+            }
+          }}
+          className="mt-1 h-4 w-4 rounded border-white/30 bg-white/20 text-blue-600 focus:ring-2 focus:ring-white/50"
+          disabled={status === 'loading'}
+        />
+        <label htmlFor="acceptPrivacy" className="text-sm text-white/90">
+          Li e concordo com a{' '}
+          <a 
+            href="/politica-privacidade" 
+            target="_blank"
+            className="underline hover:text-white font-medium"
+          >
+            Política de Privacidade
+          </a>
+        </label>
+      </div>
+      {errors.acceptPrivacy && (
+        <p className="text-red-200 text-sm">{errors.acceptPrivacy}</p>
+      )}
+
       <Button 
         type="submit"
         className="w-full bg-white text-blue-600 hover:bg-gray-100"
@@ -179,6 +214,13 @@ export default function ContactForm() {
           Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato por e-mail.
         </p>
       )}
+
+      <p className="text-xs text-white/70 text-center mt-4">
+        ℹ️ Ao enviar suas informações, você concorda com o tratamento dos dados pessoais conforme descrito em nossa{' '}
+        <a href="/politica-privacidade" target="_blank" className="underline hover:text-white">
+          Política de Privacidade
+        </a>.
+      </p>
     </form>
   );
 }

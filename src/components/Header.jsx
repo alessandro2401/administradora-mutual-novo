@@ -8,13 +8,14 @@ export default function Header() {
   const [sistemasDropdownOpen, setSistemasDropdownOpen] = useState(false);
 
   const menuItems = [
-    { name: 'Início', href: '#inicio' },
-    { name: 'Regulamentação', href: '#regulamentacao' },
-    { name: 'Mercado', href: '#mercado' },
-    { name: 'Serviços', href: '#servicos' },
+    { name: 'Início', href: '/' },
+    { name: 'Quem Somos', href: '/quem-somos' },
+    { name: 'Regulamentação', href: '/#regulamentacao' },
+    { name: 'Mercado', href: '/#mercado' },
+    { name: 'Serviços', href: '/#servicos' },
+    { name: 'Transparência', href: '/transparencia-regulatoria' },
     { name: 'Notícias', href: 'https://noticias.administradoramutual.com.br', external: true },
-    { name: 'Due Diligence', href: 'https://formulario.administradoramutual.com.br', external: true },
-    { name: 'Contato', href: '#contato' },
+    { name: 'Contato', href: '/#contato' },
   ];
 
   const sistemasInternos = [
