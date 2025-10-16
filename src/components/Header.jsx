@@ -61,7 +61,7 @@ export default function Header() {
       icon: ClipboardList,
     },
     {
-      name: 'Calculadora de Antecipação de Pagamento',
+      name: 'Calculadora SMT',
       url: 'https://total.administradoramutual.com.br',
       description: 'Calculadora SMT para indenizações e antecipações',
       icon: Calculator,
