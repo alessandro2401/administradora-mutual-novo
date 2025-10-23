@@ -76,6 +76,20 @@ def send_notification_email(user_name, user_email):
     except Exception as e:
         print(f"Erro ao enviar e-mail de notificação: {e}")
 
+# Rota de Administração - Listar Usuários
+
+@app.route('/api/admin/users', methods=['GET'])
+def list_users():
+    users = User.query.all()
+    user_list = []
+    for user in users:
+        user_list.append({
+            'name': user.name,
+            'email': user.email,
+            'is_authorized': user.is_authorized
+        })
+    return jsonify({'users': user_list})
+
 # Rota de Conteúdo Restrito
 
 @app.route('/api/admin/authorize', methods=['POST'])
