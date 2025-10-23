@@ -15,7 +15,10 @@ load_dotenv()
 app = Flask(__name__)
 
 # Configuração do Banco de Dados SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+# Usar banco de dados em memória para evitar problemas de permissão de escrita no Vercel
+# ATENÇÃO: Isso significa que os dados serão perdidos a cada invocação da função.
+# Para produção, use um banco de dados externo (PostgreSQL, MongoDB, etc.).
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
