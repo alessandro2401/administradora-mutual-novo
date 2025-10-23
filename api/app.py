@@ -77,6 +77,24 @@ def send_notification_email(user_name, user_email):
         print(f"Erro ao enviar e-mail de notificação: {e}")
 
 # Rota de Conteúdo Restrito
+
+@app.route('/api/admin/authorize', methods=['POST'])
+def authorize_user():
+    data = request.get_json()
+    email = data.get('email')
+    
+    if not email:
+        return jsonify({'message': 'Email é obrigatório'}), 400
+
+    user = User.query.filter_by(email=email).first()
+    
+    if not user:
+        return jsonify({'message': 'Usuário não encontrado'}), 404
+
+    user.is_authorized = True
+    db.session.commit()
+    
+    return jsonify({'message': f'Usuário {email} autorizado com sucesso!'}), 200
 @app.route('/api/restricted', methods=['GET'])
 def restricted():
     # Simples verificação de "token" (apenas para protótipo)
