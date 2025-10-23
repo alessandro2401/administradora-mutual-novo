@@ -1,0 +1,4 @@
+Flask
+Flask-SQLAlchemy
+python-dotenv
+Werkzeug==2.3.8
