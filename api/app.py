@@ -76,6 +76,15 @@ def send_notification_email(user_name, user_email):
     except Exception as e:
         print(f"Erro ao enviar e-mail de notificação: {e}")
 
+# Rota de Conteúdo Restrito
+@app.route('/api/restricted', methods=['GET'])
+def restricted():
+    # Simples verificação de "token" (apenas para protótipo)
+    token = request.headers.get('Authorization')
+    if token == 'Bearer valid_token':
+        return jsonify({'message': 'Conteúdo Restrito: Bem-vindo à Área do Associado!'}), 200
+    return jsonify({'message': 'Acesso negado. Token inválido ou ausente.'}), 401
+
 # Rota de Registro de Usuário
 @app.route('/api/register', methods=['POST'])
 def register():
@@ -125,7 +134,7 @@ def login():
     if not user.is_authorized:
         return jsonify({'message': 'Seu cadastro ainda não foi autorizado. Por favor, aguarde.'}), 403
 
-    return jsonify({'message': 'Login bem-sucedido!', 'user_name': user.name}), 200
+    return jsonify({'message': 'Login bem-sucedido!', 'user_name': user.name, 'token': 'Bearer valid_token'}), 200
 
 
 
