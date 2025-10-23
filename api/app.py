@@ -28,7 +28,7 @@ db = SQLAlchemy(app)
 MAIL_USERNAME = os.getenv('MAIL_USERNAME', 'operadora.mutualista.dev@gmail.com')
 MAIL_PASSWORD = os.getenv('MAIL_PASSWORD', 'sua_senha_aqui') # Substituir pela senha real ou App Password
 MAIL_SERVER = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
-MAIL_PORT = int(os.getenv('MAIL_PORT', 587))
+MAIL_PORT = int(os.getenv('MAIL_PORT', 465))
 ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'operadora.mutualista@gmail.com') # E-mail para notificação
 
 # Modelo do Banco de Dados
@@ -67,8 +67,8 @@ def send_notification_email(user_name, user_email):
     msg.attach(MIMEText(body, 'plain'))
 
     try:
-        server = smtplib.SMTP(MAIL_SERVER, MAIL_PORT)
-        server.starttls()
+        # Usar SMTP_SSL para a porta 465
+        server = smtplib.SMTP_SSL(MAIL_SERVER, MAIL_PORT)
         server.login(MAIL_USERNAME, MAIL_PASSWORD)
         server.sendmail(MAIL_USERNAME, ADMIN_EMAIL, msg.as_string())
         server.quit()
