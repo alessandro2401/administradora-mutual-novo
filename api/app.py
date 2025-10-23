@@ -112,7 +112,7 @@ def register():
     db.session.commit()
     
     # Enviar notificação para o administrador
-    # send_notification_email(name, email) # Desabilitado temporariamente por falta de credenciais SMTP
+    send_notification_email(name, email) # Reativado com credenciais SMTP
 
     return jsonify({
         'message': 'Cadastro realizado com sucesso. Seu acesso será liberado após a nossa autorização.',
