@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const RegisterForm = ({ onRegisterSuccess }) => {
+const RegisterForm = ({ onRegisterSuccess, onSwitchToLogin }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -40,7 +40,7 @@ const RegisterForm = ({ onRegisterSuccess }) => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Solicitação de Acesso</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Solicitação de Cadastro</h2>
       
       {message && (
         <div className={`p-3 mb-4 rounded-md text-sm ${
@@ -128,8 +128,20 @@ const RegisterForm = ({ onRegisterSuccess }) => {
         </div>
         
         <p className="text-center text-xs text-gray-500 mt-4">
-          Seu acesso será liberado após a nossa autorização.
-        </p>
+	          Seu acesso será liberado após a nossa autorização.
+	        </p>
+	        <div className="mt-6 text-center">
+                <p className="text-sm text-gray-600">
+                    Já tem acesso?{' '}
+                    <button
+                        type="button"
+                        onClick={onSwitchToLogin}
+                        className="text-blue-600 hover:text-blue-800 font-medium"
+                    >
+                        Fazer Login
+                    </button>
+                </p>
+            </div>
       </form>
     </div>
   );
