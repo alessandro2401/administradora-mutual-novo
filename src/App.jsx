@@ -4,7 +4,7 @@ import AdminPanel from './AdminPanel';
 import './App.css';
 
 function App() {
-  const [path, setPath] = useState(window.location.pathname);
+  const [path, setPath] = useState(window.location.pathname.toLowerCase());
 
   useEffect(() => {
     const handlePopState = () => setPath(window.location.pathname);
@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   const renderContent = () => {
-    if (path === '/admin') {
+    if (path.startsWith('/admin')) {
       return <AdminPanel />;
     }
     return <AuthPage />;
