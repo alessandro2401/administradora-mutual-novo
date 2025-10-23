@@ -130,6 +130,14 @@ def login():
 
 
 
+# Inicialização do Banco de Dados: Garantir que as tabelas sejam criadas no cold start
+with app.app_context():
+    try:
+        db.create_all()
+    except Exception as e:
+        # Ignorar erro se a tabela já existe (comum em serverless)
+        print(f"Erro ao criar tabelas, provavelmente já existem: {e}")
+
 if __name__ == '__main__':
     app.run(debug=True)
 
