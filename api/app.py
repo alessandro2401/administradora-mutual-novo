@@ -127,9 +127,8 @@ def login():
 
     return jsonify({'message': 'Login bem-sucedido!', 'user_name': user.name}), 200
 
-# Inicialização do Banco de Dados
-with app.app_context():
-    db.create_all()
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
