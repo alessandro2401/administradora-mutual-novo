@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+<!-- no-manus-badge -->
+<style>
+/* Bloqueia o badge "Made with Manus" */
+[data-manus],[id*="manus-badge"],[id*="manus-widget"],[class*="manus-badge"],[class*="manus-widget"],[class*="manus-branding"],a[href*="manus.im"],a[href*="manus.space"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;width:0!important;height:0!important;overflow:hidden!important;position:absolute!important;left:-9999px!important;}
+</style>
+<script>
+/* Bloqueia o badge "Made with Manus" */
+(function(){var s=['[data-manus]','[id*="manus-badge"]','[id*="manus-widget"]','[class*="manus-badge"]','[class*="manus-widget"]','[class*="manus-branding"]','a[href*="manus.im"]','a[href*="manus.space"]'];function r(){s.forEach(function(q){try{document.querySelectorAll(q).forEach(function(e){e.remove()});}catch(e){}});document.querySelectorAll('*').forEach(function(e){try{if(!e.children.length&&e.textContent&&e.textContent.trim().toLowerCase().includes('made with manus')){var p=e.closest('[style*="position: fixed"],[style*="position:fixed"],[style*="z-index"]')||e.parentElement;if(p&&p!==document.body)p.remove();else e.remove();}}catch(e){}});}if(window.MutationObserver){var o=new MutationObserver(function(m){m.forEach(function(x){if(x.addedNodes.length)r();});});o.observe(document.documentElement,{childList:true,subtree:true});}var c=0,i=setInterval(function(){r();if(++c>=20)clearInterval(i);},500);if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',r);}else{r();}window.addEventListener('load',function(){setTimeout(r,200);setTimeout(r,1000);setTimeout(r,3000);});})();
+</script>
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />

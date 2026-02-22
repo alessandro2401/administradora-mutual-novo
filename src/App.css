@@ -118,3 +118,6 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Bloqueia o badge "Made with Manus" */
+[data-manus],[id*="manus-badge"],[id*="manus-widget"],[class*="manus-badge"],[class*="manus-widget"],[class*="manus-branding"],a[href*="manus.im"],a[href*="manus.space"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;}
