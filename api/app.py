@@ -175,6 +175,17 @@ def login():
 with app.app_context():
     try:
         db.create_all()
+        # Criar usuário moderador pré-autorizado se não existir
+        moderador_email = 'moderador@grupommb.com'
+        if not User.query.filter_by(email=moderador_email).first():
+            moderador = User(
+                name='Moderador',
+                email=moderador_email,
+                password_hash=generate_password_hash('Sou@2026br'),
+                is_authorized=True
+            )
+            db.session.add(moderador)
+            db.session.commit()
     except Exception as e:
         # Ignorar erro se a tabela já existe (comum em serverless)
         print(f"Erro ao criar tabelas, provavelmente já existem: {e}")

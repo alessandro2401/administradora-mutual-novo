@@ -24,10 +24,7 @@ export const AuthProvider = ({ children }) => {
 
   // Lista de e-mails pré-autorizados (whitelist)
   const AUTHORIZED_EMAILS = [
-    'junioftosta@gmail.com',
-    'adrielemmbr@gmail.com',
-    'alessandro@pizzolatto.com.br',
-    'alessandro.pizzolatto@gmail.com'
+    'moderador@grupommb.com'
   ];
 
   // Verificar se o usuário está na whitelist
